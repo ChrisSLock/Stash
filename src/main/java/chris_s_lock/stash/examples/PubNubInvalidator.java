@@ -15,6 +15,7 @@ import com.pubnub.api.models.consumer.PNStatus;
 import com.pubnub.api.models.consumer.pubsub.PNMessageResult;
 import com.pubnub.api.models.consumer.pubsub.PNPresenceEventResult;
 
+import chris_s_lock.stash.Invalidation;
 import chris_s_lock.stash.Invalidator;
 
 /**
@@ -32,11 +33,12 @@ public class PubNubInvalidator<K> extends Invalidator<K> {
 	private final Gson gson = new GsonBuilder().create();
 	
 	public PubNubInvalidator(final String pubKey, final String subKey) {
+		super(PubNubInvalidator.class.getSimpleName());
 		PNConfiguration config = new PNConfiguration();
 		config.setPublishKey(pubKey);
 		config.setSubscribeKey(subKey);
 		pubNub = new PubNub(config);
-		pubNub.subscribe().channels(Arrays.asList(INVALIDATION_CHANNEL)).execute();
+		pubNub.subscribe().channels(Arrays.asList(INVALIDATION_CHANNEL+".*")).execute();
 		
 		pubNub.addListener(new SubscribeCallback() {
 			@Override
@@ -56,8 +58,8 @@ public class PubNubInvalidator<K> extends Invalidator<K> {
 			public void message(PubNub p, PNMessageResult messageResult) {
 				String message = messageResult.getMessage().asText();
 				System.out.println("message: " + message);
-				K obj = gson.fromJson(message, new TypeToken<K>(getClass()){}.getType());
-				invalidationRequired(obj);
+				Invalidation<K> invalidation = gson.fromJson(message, new TypeToken<Invalidation<K>>(getClass()){}.getType());
+				invalidationRequired(invalidation);
 			}
 
 			@Override
@@ -66,9 +68,9 @@ public class PubNubInvalidator<K> extends Invalidator<K> {
 	}
 
 	@Override
-	public void invalidate(K key) {
-		String message = gson.toJson(key);
-		pubNub.publish().channel(INVALIDATION_CHANNEL).message(message).async( new PNCallback<PNPublishResult>() {
+	public void invalidate(Invalidation<K> invalidation) {
+		String message = gson.toJson(invalidation);
+		pubNub.publish().channel(INVALIDATION_CHANNEL + "." + invalidation.getContext()).message(message).async( new PNCallback<PNPublishResult>() {
 			@Override
 			public void onResponse(PNPublishResult result, PNStatus status) {
 				if (status.isError()) throw new RuntimeException(status.getCategory().toString());

@@ -7,7 +7,6 @@ import static org.junit.Assert.*;
 import chris_s_lock.stash.examples.MockEmailDao;
 import chris_s_lock.stash.examples.MockEmailDatasource;
 import chris_s_lock.stash.examples.MockInvalidator;
-import chris_s_lock.stash.examples.PubNubInvalidator;
 
 public class InvalidatingCacheTest {
 	@Test
@@ -45,7 +44,7 @@ public class InvalidatingCacheTest {
 		dao2.save("Sally", "sally@facebook.com");
 		
 		//sleep a tick to wait for eventual consistency
-		Thread.sleep(2000);
+		Thread.sleep(5000);
 		
 		//the first app server will have had its cache invalidated, so it now reflects the correct state
 		harrysEmail = dao1.get("Harry");
