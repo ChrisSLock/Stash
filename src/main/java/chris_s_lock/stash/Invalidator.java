@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * A base class for Invalidators.  Provides and interface through which subscribers can listen
+ * A base class for Invalidators.  Provides an interface through which subscribers can listen
  * for invalidation events. Used by CacheInvalidationDecorator and LoadingCacheInvalidationDecorator
  * for invalidation.
  * 
