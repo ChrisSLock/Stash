@@ -32,7 +32,11 @@ public class CacheInvalidationDecorator<K, V> extends CacheDecorator<K, V> {
 	@Override
 	public void invalidate(Object key) {
 		doInvalidate(key);  
-		invalidator.invalidate((K)key);
+		Invalidation<K> invalidation = new Invalidation.InvalidationBuilder<K>()
+			.setCacheKey((K)key)
+			.setContext(invalidator.getInvalidationContext())
+			.build();
+		invalidator.invalidate(invalidation);
 	}
 	
 	private void doInvalidate(Object key) {

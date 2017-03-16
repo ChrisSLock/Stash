@@ -1,6 +1,7 @@
 //Copyright 2017 Chris Lock.  All Rights Reserved.
 package chris_s_lock.stash.examples;
 
+import chris_s_lock.stash.Invalidation;
 import chris_s_lock.stash.Invalidator;
 
 /**
@@ -11,8 +12,12 @@ import chris_s_lock.stash.Invalidator;
  * @author chrislock
  */
 public class MockInvalidator<K> extends Invalidator<K>{
+	public MockInvalidator() {
+		super(MockInvalidator.class.getSimpleName());
+	}
+
 	@Override
-	public void invalidate(K key) {
-		invalidationRequired(key);
+	public void invalidate(Invalidation<K> invalidation) {
+		invalidationRequired(invalidation);
 	}	
 }
