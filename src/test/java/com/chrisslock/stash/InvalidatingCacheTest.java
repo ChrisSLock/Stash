@@ -18,7 +18,8 @@ public class InvalidatingCacheTest {
 		 * To test with pub nub, and true distributed invalidation, comment out the  MockInvalidator,
 		 * uncomment the line below.
 		 * 
-		 * You will need to get a publish key and subscribed key from pubnub.com.  It's free.
+		 * You will need to get a publish key and subscribed key from pubnub.com.  It's free.  You also 
+		 * will need to enable WildCard Channels for your pubnub account
 		 */
 		//Invalidator<String> invalidator = new PubNubInvalidator<String>("YOUR_PUBLISH_KEY", "YOUR_SUBSCRIBE_KEY");
 		
