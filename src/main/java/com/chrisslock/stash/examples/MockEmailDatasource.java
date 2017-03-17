@@ -1,5 +1,5 @@
 //Copyright 2017 Chris Lock.  All Rights Reserved.
-package chris_s_lock.stash.examples;
+package com.chrisslock.stash.examples;
 
 import java.util.HashMap;
 import java.util.Map;

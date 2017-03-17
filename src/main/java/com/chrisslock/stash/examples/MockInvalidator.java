@@ -1,8 +1,8 @@
 //Copyright 2017 Chris Lock.  All Rights Reserved.
-package chris_s_lock.stash.examples;
+package com.chrisslock.stash.examples;
 
-import chris_s_lock.stash.Invalidation;
-import chris_s_lock.stash.Invalidator;
+import com.chrisslock.stash.Invalidation;
+import com.chrisslock.stash.Invalidator;
 
 /**
  * An example implementation of an Invalidator.
