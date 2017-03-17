@@ -1,5 +1,5 @@
 //Copyright 2017 Chris Lock.  All Rights Reserved.
-package chris_s_lock.stash;
+package com.chrisslock.stash;
 
 import java.util.UUID;
 

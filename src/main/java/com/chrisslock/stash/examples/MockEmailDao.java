@@ -1,5 +1,5 @@
 //Copyright 2017 Chris Lock.  All Rights Reserved.
-package chris_s_lock.stash.examples;
+package com.chrisslock.stash.examples;
 
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
@@ -8,8 +8,8 @@ import com.google.common.cache.CacheBuilder;
 import com.google.common.cache.CacheLoader;
 import com.google.common.cache.LoadingCache;
 
-import chris_s_lock.stash.Invalidator;
-import chris_s_lock.stash.LoadingCacheInvalidationDecorator;
+import com.chrisslock.stash.Invalidator;
+import com.chrisslock.stash.LoadingCacheInvalidationDecorator;
 
 /**
  * An Example dao, showing how to use the Invalidation Decorators.

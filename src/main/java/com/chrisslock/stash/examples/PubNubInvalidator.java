@@ -1,5 +1,5 @@
 //Copyright 2017 Chris Lock.  All Rights Reserved.
-package chris_s_lock.stash.examples;
+package com.chrisslock.stash.examples;
 
 import java.util.Arrays;
 
@@ -15,8 +15,8 @@ import com.pubnub.api.models.consumer.PNStatus;
 import com.pubnub.api.models.consumer.pubsub.PNMessageResult;
 import com.pubnub.api.models.consumer.pubsub.PNPresenceEventResult;
 
-import chris_s_lock.stash.Invalidation;
-import chris_s_lock.stash.Invalidator;
+import com.chrisslock.stash.Invalidation;
+import com.chrisslock.stash.Invalidator;
 
 /**
  * An Example of a true distributed Invalidator which uses the publish/subscribe  

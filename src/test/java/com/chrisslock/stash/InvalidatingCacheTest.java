@@ -1,12 +1,12 @@
 //Copyright 2017 Chris Lock.  All Rights Reserved.
-package chris_s_lock.stash;
+package com.chrisslock.stash;
 
 import org.junit.Test;
 
 import static org.junit.Assert.*;
-import chris_s_lock.stash.examples.MockEmailDao;
-import chris_s_lock.stash.examples.MockEmailDatasource;
-import chris_s_lock.stash.examples.MockInvalidator;
+import com.chrisslock.stash.examples.MockEmailDao;
+import com.chrisslock.stash.examples.MockEmailDatasource;
+import com.chrisslock.stash.examples.MockInvalidator;
 
 public class InvalidatingCacheTest {
 	@Test

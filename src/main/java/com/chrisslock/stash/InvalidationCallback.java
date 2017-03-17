@@ -1,11 +1,11 @@
 //Copyright 2017 Chris Lock.  All Rights Reserved.
-package chris_s_lock.stash;
+package com.chrisslock.stash;
 
 /**
  * A base class for an Invalidator callback.
  * @author chrislock
  */
-public abstract class InvalidationCallback<K> {
+public interface InvalidationCallback<K> {
 	/**
 	 * Called when the invalidator receives a call to invalidate().  Implementors
 	 * should take any action needed to locally invalidate the record represented 
